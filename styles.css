@@ -1,5 +1,6 @@
 * {
 font-family: 'Poiret One', cursive;
+/* border: 1px solid pink; */
 }
 
 html {
@@ -8,6 +9,19 @@ html {
    height: 100%;
    left: 0;
    top: 0;
+   display: flex;
+}
+
+aside {
+  width: 20vw;
+  background: linear-gradient(to bottom, black, maroon, indianRed);
+  color: ivory;
+}
+
+.game-board {
+  background: linear-gradient(to bottom, black, saddleBrown, navajoWhite);
+  width: 50vw;
+  height: auto;
 }
 
 body {
@@ -15,6 +29,12 @@ body {
    height: 100%;
    width: 100%;
    margin: 0;
+   display: flex;
+   justify-content: space-between;
+ }
+
+ section {
+   display: flex;
  }
 
  h2 {
