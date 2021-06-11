@@ -1,0 +1,23 @@
+* {
+font-family: 'Poiret One', cursive;
+}
+
+html {
+  position: fixed;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+}
+
+body {
+   background: linear-gradient(to bottom, black, DarkGoldenRod, gold);
+   height: 100%;
+   width: 100%;
+   margin: 0;
+ }
+
+ h2 {
+   color: ivory;
+
+ }
