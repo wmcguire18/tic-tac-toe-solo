@@ -1,5 +1,6 @@
 * {
 font-family: 'Poiret One', cursive;
+box-shadow: 3px 3px 10px black;
 /* border: 1px solid pink; */
 }
 
@@ -14,7 +15,7 @@ html {
 
 aside {
   width: 20vw;
-  background: linear-gradient(to bottom, black, maroon, indianRed);
+  background: linear-gradient(to bottom, black, darkolivegreen, darkolivegreen);
   color: gold;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,7 @@ aside {
 }
 
 .game-board {
-  background: linear-gradient(to bottom, black, saddleBrown, navajoWhite);
+  background: linear-gradient(to bottom, black, saddleBrown, saddleBrown);
   width: 55vw;
   height: 90vh;
   display: flex;
@@ -33,9 +34,10 @@ aside {
 }
 
 button {
+  cursor: pointer;
   height: 15vh;
   width: 10vw;
-  background: linear-gradient(to bottom, black, darkgrey, dimgrey);
+  background: linear-gradient(to bottom, black, black, dimgrey);
   border: 2.5px solid gold;
   margin: 0px;
 }
@@ -45,7 +47,7 @@ display: flex;
 }
 
 body {
-   background: linear-gradient(to bottom, black, DarkGoldenRod, gold);
+   background: linear-gradient(to bottom, black, black, darkgoldenrod, darkgoldenrod);
    height: 100%;
    width: 100%;
    margin: 0;
@@ -66,4 +68,18 @@ body {
  h2 {
    color: gold;
 
+ }
+
+ .new-game {
+   cursor: pointer;
+   font-size: 17px;
+   color: gold;
+   font-weight: bold;
+   height: 5vh;
+   width: 17vw;
+   margin-top: 10vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: linear-gradient(to bottom, black, black, dimgrey);
  }
