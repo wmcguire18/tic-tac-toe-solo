@@ -35,7 +35,7 @@ aside {
 button {
   height: 15vh;
   width: 10vw;
-  background-color: black;
+  background: linear-gradient(to bottom, black, darkgrey, dimgrey);
   border: 2.5px solid gold;
   margin: 0px;
 }
