@@ -15,7 +15,7 @@ html {
 
 aside {
   width: 20vw;
-  background: linear-gradient(to bottom, black, darkolivegreen, darkolivegreen);
+  background: linear-gradient(to bottom, darkolivegreen, darkolivegreen, black);
   color: gold;
   display: flex;
   flex-direction: column;
@@ -34,6 +34,8 @@ aside {
 }
 
 button {
+  color: darkgoldenrod;
+  font-size: 55px;
   cursor: pointer;
   height: 15vh;
   width: 10vw;
@@ -82,4 +84,8 @@ body {
    align-items: center;
    justify-content: center;
    background: linear-gradient(to bottom, black, black, dimgrey);
+ }
+
+ .hidden {
+   display: none!important;
  }
