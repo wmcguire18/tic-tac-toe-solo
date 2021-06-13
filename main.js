@@ -1,4 +1,4 @@
-var game = new Game("Player One", "Player Two", "P1", "Unknown");
+var game = new Game("Player One", "Player Two", "Player One Turn", "Unknown");
 
 var newGame = document.querySelector("#new-game");
 var gameBoard = document.querySelector(".game-board");
@@ -7,4 +7,4 @@ var playerTwoTurn = document.querySelector(".game-data2");
 
 
 newGame.addEventListener("click", game.newGame);
-gameBoard.addEventListener("click", game.toggleTurn);
+gameBoard.addEventListener("click", game.makeMove);
