@@ -1,8 +1,8 @@
 class Player {
   constructor(id, token, wins) {
-    this.id = "Player 1" || "Player 2";
+    this.id = "Player One" || "Player Two";
     this.token = "X" || "O";
-    this.wins = [];
+    this.wins = wins;
   }
 
 // saveWinsToStorage() {

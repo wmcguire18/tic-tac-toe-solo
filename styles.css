@@ -33,7 +33,7 @@ aside {
   justify-content: center;
 }
 
-button {
+.game-button {
   color: darkgoldenrod;
   font-size: 55px;
   cursor: pointer;
@@ -62,10 +62,13 @@ body {
    flex-direction: column;
  }
 
- .game-data-info {
-   display: flex;
-   justify-content: space-between;
- }
+  .game-data1 {
+    text-align: left;
+  }
+
+  .game-data2 {
+    text-align: right;
+  }
 
  h2 {
    color: gold;
