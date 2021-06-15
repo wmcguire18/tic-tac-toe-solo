@@ -10,10 +10,8 @@ newGame.addEventListener("click", loadNewGame);
 gameBoard.addEventListener("click", makeMove);
 
 function loadNewGame() {
-  var game = new Game("Player One", "Player Two", "Player One Turn");
   clearGameBoard();
   game.resetBoard();
-  console.log(playerTwoTurn.innerText)
   playerOneTurn.innerText = "Player One, it's your turn...";
   playerTwoTurn.innerText = "Player Two, it's your turn...";
   playerOneTurn.classList.remove("hidden");
@@ -42,13 +40,12 @@ function makeMove() {
 }
 
 function winScreen(){
-  console.log(newGame.innerText)
   if (game.checkForWin(game.playerOne)) {
     playerTwoTurn.innerText = "Player One wins!"
-    setTimeout(function(){loadNewGame();}, 3000);
+    setTimeout(function(){location.reload()}, 3000);
   } else if (game.checkForWin(game.playerTwo)) {
     playerOneTurn.innerText = "Player Two wins!"
-    setTimeout(function(){loadNewGame();}, 3000);
+    setTimeout(function(){location.reload()}, 3000);
   }
 }
 
@@ -75,3 +72,4 @@ function clearGameBoard() {
   </div>
   <div class="new-game" id="new-game">New game?</div>`
 }
+
