@@ -49,8 +49,9 @@ class Game {
       player.positions.includes(winScenarios[i][1]) &&
       player.positions.includes(winScenarios[i][2])) {
       player.wins += 1;
-      console.log("Win!");
       setTimeout(function(){game.resetBoard();}, 3000);
+      console.log("Win");
+      return true;
       }
     }
 }

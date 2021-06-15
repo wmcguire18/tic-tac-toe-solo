@@ -9,9 +9,13 @@ var resignButton = document.querySelector("#resign-game");
 newGame.addEventListener("click", loadNewGame);
 gameBoard.addEventListener("click", makeMove);
 
-
 function loadNewGame() {
+  var game = new Game("Player One", "Player Two", "Player One Turn");
   clearGameBoard();
+  game.resetBoard();
+  console.log(playerTwoTurn.innerText)
+  playerOneTurn.innerText = "Player One, it's your turn...";
+  playerTwoTurn.innerText = "Player Two, it's your turn...";
   playerOneTurn.classList.remove("hidden");
   playerTwoTurn.classList.add("hidden");
 }
@@ -33,7 +37,19 @@ function makeMove() {
   game.toggleTurn()
   game.checkForWin(game.playerOne);
   game.checkForWin(game.playerTwo);
+  winScreen();
   // game.checkForDraw();
+}
+
+function winScreen(){
+  console.log(newGame.innerText)
+  if (game.checkForWin(game.playerOne)) {
+    playerTwoTurn.innerText = "Player One wins!"
+    setTimeout(function(){loadNewGame();}, 3000);
+  } else if (game.checkForWin(game.playerTwo)) {
+    playerOneTurn.innerText = "Player Two wins!"
+    setTimeout(function(){loadNewGame();}, 3000);
+  }
 }
 
 function disableMultiClick(button) {
