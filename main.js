@@ -45,10 +45,10 @@ function winScreen(){
   console.log(newGame.innerText)
   if (game.checkForWin(game.playerOne)) {
     playerTwoTurn.innerText = "Player One wins!"
-    setTimeout(function(){loadNewGame();}, 3000);
+    setTimeout(function(){location.reload()}, 3000);
   } else if (game.checkForWin(game.playerTwo)) {
     playerOneTurn.innerText = "Player Two wins!"
-    setTimeout(function(){loadNewGame();}, 3000);
+    setTimeout(function(){location.reload()}, 3000);
   }
 }
 
