@@ -1,9 +1,8 @@
 class Game {
-  constructor(playerOne, playerTwo, turn, result) {
+  constructor(playerOne, playerTwo, turn) {
     this.playerOne = new Player("Player One", "X", 0);
     this.playerTwo = new Player("Player Two", "O", 0);
     this.turn = "Player One Turn";
-    this.result = result;
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
   }
 
@@ -11,18 +10,19 @@ class Game {
   updateBoard(index) {
   if (this.turn === "Player One Turn") {
     this.gameboard[index] = this.playerOne.token;
-    this.playerOne.turns.push(index);
-    checkForWin(this.PlayerOne);
+    this.playerOne.positions.push(parseInt(index));
+    this.checkForWin(this.playerOne);
   } else if (this.turn === "Player Two Turn") {
     this.gameboard[index] = this.playerTwo.token;
-    this.playerTwo.turns.push(index);
-    checkForWin(this.PlayerTwo);
+    this.playerTwo.positions.push(parseInt(index));
+    this.checkForWin(this.playerTwo);
   }
-    checkForDraw();
+    // this.checkForDraw();
   }
 
   resetBoard() {
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
+    this.turn = "Player One Turn";
   }
 
   toggleTurn() {
@@ -35,24 +35,25 @@ class Game {
   }
 
   checkForWin(player) {
-    if (player.turns.includes(0) && player.turns.includes(1) && player.turns.includes(2) ||
-    player.turns.includes(3) && player.turns.includes(4) && player.turns.includes(5) ||
-    player.turns.includes(6) && player.turns.includes(7) && player.turns.includes(8) ||
-    player.turns.includes(0) && player.turns.includes(3) && player.turns.includes(6) ||
-    player.turns.includes(1) && player.turns.includes(4) && player.turns.includes(7) ||
-    player.turns.includes(2) && player.turns.includes(5) && player.turns.includes(8) ||
-    player.turns.includes(0) && player.turns.includes(4) && player.turns.includes(8) ||
-    player.turns.includes(8) && player.turns.includes(4) && player.turns.includes(0) ||
-    player.turns.includes(2) && player.turns.includes(4) && player.turns.includes(6)) {
-      return true;
+    var winScenarios = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6] ];
+    for (var i = 0; i < winScenarios.length; i++) {
+      if (player.positions.includes(winScenarios[i][0]) &&
+      player.positions.includes(winScenarios[i][1]) &&
+      player.positions.includes(winScenarios[i][2])) {
+      player.wins += 1;
+      console.log("Win!");
+      setTimeout(function(){game.resetBoard();}, 3000);
+      }
     }
-  }
-
-
-  checkForDraw() {
-    if (!this.gameboard.includes("")) {
-      this.result = "Draw";
-    }
-    }
-
 }
+}
+  // checkForDraw() {
+  //   if (!this.gameboard.includes("") && !checkForWin(this.playerOne) && !checkForWin(this.playerTwo)) {
