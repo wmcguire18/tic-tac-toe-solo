@@ -7,7 +7,7 @@ var playerTwoTurn = document.querySelector("#gameData2");
 var playerOneWins = document.querySelector("#player1Wins");
 var playerTwoWins = document.querySelector("#player2Wins");
 
-
+window.addEventListener("load", indicateWins);
 newGame.addEventListener("click", loadNewGame);
 gameBoard.addEventListener("click", makeMove);
 
@@ -35,8 +35,6 @@ function makeMove() {
   }
   game.updateBoard(selectedButton.id)
   game.toggleTurn()
-  game.checkForWin(game.playerOne);
-  game.checkForWin(game.playerTwo);
   winScreen();
 }
 

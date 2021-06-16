@@ -1,7 +1,7 @@
 class Game {
   constructor(playerOne, playerTwo, turn) {
-    this.playerOne = new Player("Player One", "X", 0);
-    this.playerTwo = new Player("Player Two", "O", 0);
+    this.playerOne = new Player("Player One", "X");
+    this.playerTwo = new Player("Player Two", "O");
     this.turn = "Player One Turn";
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
     this.turns = 0;
@@ -12,12 +12,10 @@ class Game {
   if (this.turn === "Player One Turn") {
     this.gameboard[index] = this.playerOne.token;
     this.playerOne.positions.push(parseInt(index));
-    this.checkForWin(this.playerOne);
     this.turns++;
   } else if (this.turn === "Player Two Turn") {
     this.gameboard[index] = this.playerTwo.token;
     this.playerTwo.positions.push(parseInt(index));
-    this.checkForWin(this.playerTwo);
     this.turns++;
   }
   }
@@ -25,12 +23,9 @@ class Game {
   resetBoard() {
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
     this.turn = "Player One Turn";
-    this.playerOne.retreieveWinsFromStorage();
-    this.playerTwo.retreieveWinsFromStorage();
-  }
+  };
 
   toggleTurn() {
-    console.log(this.turn);
     if (this.turn === "Player One Turn") {
       this.turn = "Player Two Turn";
     } else if (this.turn === "Player Two Turn") {
@@ -49,13 +44,13 @@ class Game {
       [0, 4, 8],
       [2, 4, 6] ];
     for (var i = 0; i < winScenarios.length; i++) {
-      if (player.positions.includes(winScenarios[i][0]) &&
-      player.positions.includes(winScenarios[i][1]) &&
-      player.positions.includes(winScenarios[i][2])) {
-      player.wins += 1;
-      setTimeout(function(){game.resetBoard();}, 3000);
-      player.saveWinsToStorage()
-      return true;
+      if (player.positions.includes(winScenarios[i][0]) && player.positions.includes(winScenarios[i][1]) && player.positions.includes(winScenarios[i][2])) {
+        player.retreieveWinsFromStorage();
+        player.calculateWins();
+        player.saveWinsToStorage();
+        console.log(player)
+        setTimeout(function(){game.resetBoard();}, 3000);
+        return true;
       }
     }
 }
