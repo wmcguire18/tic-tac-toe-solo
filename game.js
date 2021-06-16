@@ -1,12 +1,26 @@
 class Game {
-  constructor(playerOne, playerTwo, turn) {
-    this.playerOne = new Player("Player One", "X");
-    this.playerTwo = new Player("Player Two", "O");
+  constructor() {
+    this.playerOne = new Player({id: "Player One", token: "X"});
+    this.playerTwo = new Player({id: "Player Two", token: "O"});
     this.turn = "Player One Turn";
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
     this.turns = 0;
   }
 
+  inputToStorage() {
+    var gameObject = JSON.stringify(this);
+    localStorage.setItem("gameObject", gameObject);
+    }
+
+  grabFromStorage() {
+    var stringGame = localStorage.getItem("gameObject")
+    var gameInfo = JSON.parse(stringGame);
+    this.playerOne = new Player(gameInfo.playerOne);
+    this.playerTwo = new Player(gameInfo.playerTwo);
+    this.turn = gameInfo.turn;
+    this.gameboard = gameInfo.gameboard;
+    this.turns = gameInfo.turns;
+    }
 
   updateBoard(index) {
   if (this.turn === "Player One Turn") {
@@ -23,6 +37,8 @@ class Game {
   resetBoard() {
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
     this.turn = "Player One Turn";
+    this.playerOne.retreieveWinsFromStorage();
+    this.playerTwo.retreieveWinsFromStorage();
   };
 
   toggleTurn() {
@@ -45,10 +61,8 @@ class Game {
       [2, 4, 6] ];
     for (var i = 0; i < winScenarios.length; i++) {
       if (player.positions.includes(winScenarios[i][0]) && player.positions.includes(winScenarios[i][1]) && player.positions.includes(winScenarios[i][2])) {
-        player.retreieveWinsFromStorage();
         player.calculateWins();
         player.saveWinsToStorage();
-        console.log(player)
         setTimeout(function(){game.resetBoard();}, 3000);
         return true;
       }

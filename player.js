@@ -1,9 +1,9 @@
 class Player {
-  constructor(id, token) {
-    this.id = id;
-    this.token = token;
-    this.wins = 2;
-    this.positions = [];
+  constructor(object) {
+    this.id = object.id;
+    this.token = object.token;
+    this.wins = object.wins || 0;
+    this.positions = object.positions || [];
   }
   calculateWins() {
     this.wins++;
@@ -17,7 +17,6 @@ class Player {
     var stringScores = localStorage.getItem(`${this.id}`)
     var scores = JSON.parse(stringScores);
     this.wins = scores;
-    console.log(scores);
     }
 
 };

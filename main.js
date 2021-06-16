@@ -1,4 +1,4 @@
-var game = new Game("Player One", "Player Two", "Player One Turn");
+var game = new Game();
 
 var newGame = document.querySelector('#newGame');
 var gameBoard = document.querySelector("#gameBoard");
@@ -13,7 +13,6 @@ gameBoard.addEventListener("click", makeMove);
 
 function loadNewGame() {
   clearGameBoard();
-  game.resetBoard();
   playerOneTurn.innerText = "Player One, it's your turn...";
   playerTwoTurn.innerText = "Player Two, it's your turn...";
   playerOneTurn.classList.remove("hidden");
@@ -27,7 +26,7 @@ function makeMove() {
     disableMultiClick(selectedButton);
     playerOneTurn.classList.add("hidden");
     playerTwoTurn.classList.remove("hidden");
-} else {
+} else if (game.turn === "Player Two Turn"){
     selectedButton.innerText = "O";
     disableMultiClick(selectedButton);
     playerOneTurn.classList.remove("hidden");
@@ -50,6 +49,7 @@ function winScreen(){
     playerTwoTurn.innerText = "Draw Game!"
     setTimeout(function(){location.reload()}, 3000);
   }
+  indicateWins()
 }
 
 function disableMultiClick(button) {
@@ -76,8 +76,12 @@ function clearGameBoard() {
   <div class="new-game" id="new-game">New game?</div>`
 }
 
-function indicateWins(event) {
-  event.preventDefault()
+function indicateWins() {
+  game.resetBoard();
   playerOneWins.innerHTML = `${game.playerOne.wins} Wins`;
   playerTwoWins.innerHTML = `${game.playerTwo.wins} Wins`;
 }
+
+
+//CREATING A METHOD IN MAIN THAT TRANSFERS GAMEINFO OBJECT DATA TO VISUAL REPRESENTATION.
+//ON LOAD, LOAD YOUR GAME, PULL FROM LOCAL STORAGE, UPDATE DOM WITH GLOBAL VARIABLE
