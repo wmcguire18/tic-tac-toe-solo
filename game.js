@@ -36,7 +36,6 @@ class Game {
 
   resetBoard() {
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
-    this.turn = "Player One Turn";
     this.playerOne.retreieveWinsFromStorage();
     this.playerTwo.retreieveWinsFromStorage();
   };
