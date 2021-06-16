@@ -7,6 +7,7 @@ var playerTwoTurn = document.querySelector("#gameData2");
 var playerOneWins = document.querySelector("#player1Wins");
 var playerTwoWins = document.querySelector("#player2Wins");
 
+
 window.addEventListener("load", indicateWins);
 newGame.addEventListener("click", loadNewGame);
 gameBoard.addEventListener("click", makeMove);
@@ -40,16 +41,17 @@ function makeMove() {
 function winScreen(){
   if (game.checkForWin(game.playerOne)) {
     playerTwoTurn.innerText = "Player One wins!"
-    setTimeout(function(){location.reload()}, 3000);
+    setTimeout(function(){location.reload()}, 300);
   } else if (game.checkForWin(game.playerTwo)) {
     playerOneTurn.innerText = "Player Two wins!"
-    setTimeout(function(){location.reload()}, 3000);
+    setTimeout(function(){location.reload()}, 300);
   } else if (game.turns === 9) {
     playerOneTurn.innerText = "Draw Game!"
     playerTwoTurn.innerText = "Draw Game!"
-    setTimeout(function(){location.reload()}, 3000);
+    setTimeout(function(){location.reload()}, 300);
   }
   indicateWins()
+  $(':button').prop('disabled', true);
 }
 
 function disableMultiClick(button) {

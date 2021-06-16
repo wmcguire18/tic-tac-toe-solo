@@ -62,7 +62,7 @@ class Game {
       if (player.positions.includes(winScenarios[i][0]) && player.positions.includes(winScenarios[i][1]) && player.positions.includes(winScenarios[i][2])) {
         player.calculateWins();
         player.saveWinsToStorage();
-        setTimeout(function(){game.resetBoard();}, 3000);
+        setTimeout(function(){game.resetBoard();}, 300);
         return true;
       }
     }

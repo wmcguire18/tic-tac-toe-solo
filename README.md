@@ -17,9 +17,9 @@ A stylish art deco take on the classic game!
 
 ### Future Additions
 - The "New Game" button turning into a "Resign?" button and awarding the opposing player a win.
-- Refactor main.js and extract logic to be used in Idea.js (DRY up lengthy functions).
+
 
 ### Known Bugs
-- Try as I might I cannot transfer the wins in localStorage to the HTML in the player sections.
+- The New Game button triggers a null result in the function that indicates player moves since they're all present on the "game board" div.
 
 ## [Check it Out](https://williammcguire/tic-tac-toe-solo/index.html)
