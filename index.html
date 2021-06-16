@@ -11,14 +11,14 @@
     <aside class="player-1-area">
       <h1> Player One </h1>
       <h2> X </h2>
-      <h3> # Wins </h3>
+      <h3 id="player1Wins"> # Wins </h3>
     </aside>
     <section class="central-section">
       <div class="game-data-info">
-        <h2 class="game-data1 hidden"> Player One, it's your turn... </h2>
-        <h2 class="game-data2 hidden"> Player Two, it's your turn... </h2>
+        <h2 class="game-data1 hidden" id="gameData1"> Player One, it's your turn... </h2>
+        <h2 class="game-data2 hidden" id="gameData2"> Player Two, it's your turn... </h2>
       </div>
-      <div class="game-board">
+      <div class="game-board" id="gameBoard">
         <div class="row">
           <button type="button" name="button1" class="game-button" id="0"></button>
           <button type="button" name="button2" class="game-button" id="1"></button>
@@ -34,13 +34,13 @@
           <button type="button" name="button8" class="game-button" id="7"></button>
           <button type="button" name="button9" class="game-button" id="8"></button>
         </div>
-        <div class="new-game" id="new-game">New game?</div>
+        <div class="new-game" id="newGame">New game?</div>
       </div>
     </section>
     <aside class="player-2-area">
       <h1> Player Two </h1>
       <h2> O </h2>
-      <h3> # Wins </h3>
+      <h3 id="player2Wins"> # Wins </h3>
     </aside>
   <script src="player.js"> </script>
   <script src="game.js"> </script>

@@ -4,6 +4,7 @@ class Game {
     this.playerTwo = new Player("Player Two", "O", 0);
     this.turn = "Player One Turn";
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
+    this.turns = 0;
   }
 
 
@@ -12,17 +13,20 @@ class Game {
     this.gameboard[index] = this.playerOne.token;
     this.playerOne.positions.push(parseInt(index));
     this.checkForWin(this.playerOne);
+    this.turns++;
   } else if (this.turn === "Player Two Turn") {
     this.gameboard[index] = this.playerTwo.token;
     this.playerTwo.positions.push(parseInt(index));
     this.checkForWin(this.playerTwo);
+    this.turns++;
   }
-    // this.checkForDraw();
   }
 
   resetBoard() {
     this.gameboard = ["", "", "", "", "", "", "", "", "",];
     this.turn = "Player One Turn";
+    this.playerOne.retreieveWinsFromStorage();
+    this.playerTwo.retreieveWinsFromStorage();
   }
 
   toggleTurn() {
@@ -50,11 +54,9 @@ class Game {
       player.positions.includes(winScenarios[i][2])) {
       player.wins += 1;
       setTimeout(function(){game.resetBoard();}, 3000);
-      console.log("Win");
+      player.saveWinsToStorage()
       return true;
       }
     }
 }
 }
-  // checkForDraw() {
-  //   if (!this.gameboard.includes("") && !checkForWin(this.playerOne) && !checkForWin(this.playerTwo)) {

@@ -1,10 +1,12 @@
 var game = new Game("Player One", "Player Two", "Player One Turn");
 
-var newGame = document.querySelector('#new-game');
-var gameBoard = document.querySelector(".game-board");
-var playerOneTurn = document.querySelector(".game-data1");
-var playerTwoTurn = document.querySelector(".game-data2");
-var resignButton = document.querySelector("#resign-game");
+var newGame = document.querySelector('#newGame');
+var gameBoard = document.querySelector("#gameBoard");
+var playerOneTurn = document.querySelector("#gameData1");
+var playerTwoTurn = document.querySelector("#gameData2");
+var playerOneWins = document.querySelector("#player1Wins");
+var playerTwoWins = document.querySelector("#player2Wins");
+
 
 newGame.addEventListener("click", loadNewGame);
 gameBoard.addEventListener("click", makeMove);
@@ -36,7 +38,6 @@ function makeMove() {
   game.checkForWin(game.playerOne);
   game.checkForWin(game.playerTwo);
   winScreen();
-  // game.checkForDraw();
 }
 
 function winScreen(){
@@ -45,6 +46,10 @@ function winScreen(){
     setTimeout(function(){location.reload()}, 3000);
   } else if (game.checkForWin(game.playerTwo)) {
     playerOneTurn.innerText = "Player Two wins!"
+    setTimeout(function(){location.reload()}, 3000);
+  } else if (game.turns === 9) {
+    playerOneTurn.innerText = "Draw Game!"
+    playerTwoTurn.innerText = "Draw Game!"
     setTimeout(function(){location.reload()}, 3000);
   }
 }
@@ -73,3 +78,8 @@ function clearGameBoard() {
   <div class="new-game" id="new-game">New game?</div>`
 }
 
+function indicateWins(event) {
+  event.preventDefault()
+  playerOneWins.innerHTML = `${game.playerOne.wins} Wins`;
+  playerTwoWins.innerHTML = `${game.playerTwo.wins} Wins`;
+}
