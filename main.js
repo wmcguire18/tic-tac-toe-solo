@@ -83,7 +83,3 @@ function indicateWins() {
   playerOneWins.innerHTML = `${game.playerOne.wins} Wins`;
   playerTwoWins.innerHTML = `${game.playerTwo.wins} Wins`;
 }
-
-
-//CREATING A METHOD IN MAIN THAT TRANSFERS GAMEINFO OBJECT DATA TO VISUAL REPRESENTATION.
-//ON LOAD, LOAD YOUR GAME, PULL FROM LOCAL STORAGE, UPDATE DOM WITH GLOBAL VARIABLE
